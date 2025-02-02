@@ -16,6 +16,7 @@ body {
   height: 5px;
   background-color: purple;
   z-index: 100;
+  transition: width .25s ease-in-out;
 }
 .spacer {
   height: 800px;

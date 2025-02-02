@@ -24,8 +24,14 @@ const scrollDebouncing = () => {
 
   currentScroll = window.scrollY;
 };
-// const allScrollAnimations = () => {
-// debouncer.debounce(scrollDebouncing);
-// debouncer.debounce(() => progressbar_obj.scrollProgress());
-// };
-window.addEventListener("scroll", debouncer.debounce(scrollDebouncing));
+// Function that handles all scroll animations
+const allScrollAnimations = () => {
+  scrollDebouncing(); // Call your scroll debouncing logic here
+  progressbar_obj.scrollProgress(); // Update the progress bar
+};
+
+// Debounced version of `allScrollAnimations` to handle scroll event
+const debouncedScrollAnimations = debouncer.debounce(allScrollAnimations);
+
+// Add the debounced function as an event listener
+window.addEventListener("scroll", debouncedScrollAnimations);

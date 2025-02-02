@@ -1,3 +1,4 @@
+// Your Debouncer class
 class Debouncer {
   constructor(delay = 500) {
     this.delay = delay;
@@ -10,12 +11,11 @@ class Debouncer {
         clearTimeout(this.timerId);
       }
       this.timerId = setTimeout(() => {
-        callback.apply(this, ...args);
+        callback.apply(this, args); // Ensure proper application of arguments
       }, this.delay);
     };
   }
 }
-
 // Usage
 const debouncer = new Debouncer();
 export default debouncer;
