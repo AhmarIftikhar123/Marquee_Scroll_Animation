@@ -16,12 +16,23 @@ body {
   height: 5px;
   background-color: purple;
   z-index: 100;
-  transition: width .25s ease-in-out;
+  transition: width 0.25s ease-in-out;
 }
 .spacer {
   height: 800px;
 }
-
+.cursor_tracker {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: luminosity;
+  background-color: purple;
+}
 .marquee {
   position: relative;
   background-color: black;

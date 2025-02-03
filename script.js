@@ -1,7 +1,9 @@
 import arrows_obj from "./assets/js/arrows.js";
+import cursor_obj from "./assets/js/cursor.js";
 import debouncer from "./assets/js/Debouncing.js";
 import GSAP_obj from "./assets/js/GSAP.js";
 import progressbar_obj from "./assets/js/progressbar.js";
+import throttle_obj from "./assets/js/throttle.js";
 
 let currentScroll = 0,
   isScrollingDown = true,
@@ -35,3 +37,10 @@ const debouncedScrollAnimations = debouncer.debounce(allScrollAnimations);
 
 // Add the debounced function as an event listener
 window.addEventListener("scroll", debouncedScrollAnimations);
+
+// Create a throttled version of the animate_cursor function
+const throttledAnimateCursor = throttle_obj.throttling((e) => {
+  cursor_obj.animate_cursor(e.pageX, e.pageY);
+}, 500);
+
+document.addEventListener("mousemove", throttledAnimateCursor);
